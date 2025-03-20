@@ -8,7 +8,12 @@ Our method - RPE
 
    Inputs:
 
-       (i)
+       (i) X_train
+       (ii) y_train
+      (iii) X_test
+      (iv) model
+   Outputs:
+   (i) y_hat
 
    2. Model.R
       Inputs:
