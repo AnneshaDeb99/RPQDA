@@ -71,7 +71,7 @@ Our proposed method: **RPE**
   - `y_hat`: Estimated classes.
 
 ### 5. `RPE-CS.R`
-- **Key Function**: `RPE-CS`
+- **Key Function**: `RPE.CS`
 - **Inputs**:
   - `X_train`: \( n \times p \) training data matrix.
   - `y_train`: Training classes.
