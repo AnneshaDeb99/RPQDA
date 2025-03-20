@@ -149,7 +149,7 @@ Experiment <- function(model, method, p_all, iter, n1=100, n2=100, m1=200, m2=20
       
       if (method %in% c('RPE-TP', 'all')) {
         start_rpe <- Sys.time()
-        output <- RPEnsemble('3_point',X_train,y_train,X_test, d = 10, B = 500)
+        output <- RPE('3_point',X_train,y_train,X_test, d = 10, B = 500)
         MP[8,j,k] <- mean(y_test!=output)
         end_rpe <- Sys.time()
         Ti[8,j,k] <- as.numeric(difftime(end_rpe, start_rpe, units = "secs"))
