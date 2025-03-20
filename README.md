@@ -100,7 +100,7 @@ To evaluate the misclassification probabilities for each method and model, the f
 
 ### 1. `Model.R`
 - **Inputs**:
-  - `type`: Model type (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`)
+  - `type`: Scheme/Model type (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`)
   - `p`: Data dimension
 - **Outputs**:
   - `mu1`, `mu2`: mean paramaters for the Gaussina distribution for class 1 and class 2
@@ -123,11 +123,16 @@ To evaluate the misclassification probabilities for each method and model, the f
 
 ### 3. `Experiment.R`
 - **Inputs**:
-  - `mu1`, `mu2`
-  - `sigma1`, `sigma2`
-  - `Omega1`, `Omega2`
-  - `logdet`
-  - `n1`, `n2`, `m1`, `m2`
+  - `model`: Schemes mentioned in the paper (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`)
+  - `method`: Methods mentioned in the paper (e.g., `'HDDA'`)
+  - `p_all`: vector of dimensions
+  - `iter`: number of times data generations to be executed
+  - `n1`, `n2`: training observations for class 1 and class 2
+  - `m1`, `m2`: test observations for class 1 and class 2
+  - `file_name`: file_name where outputs to be stored (e.g., `'result.RData'`)
+- **Outputs**:
+  - `MP`: list of misclassification proportions of dimension (iter, (n2 + m2), p_all)
+  - `Ti`: list of time of execution of dimension (iter, (n2 + m2), p_all)
 - **Outputs**:
   - `X1`
   - `X2`
@@ -136,56 +141,4 @@ To evaluate the misclassification probabilities for each method and model, the f
 ### 4. `Main_Parallel.R`
 This script runs the full evaluation in a parallel computing environment.
 
-The following description of the functions are in reference to the paper titled "Ultrahigh-dimensional Quadratic Discriminant Analysis Using Random Projections".
 
-The competeting methods are - 1. HDDA, 2. IIS-SQDA, 3. DA-QDA, 4. RPE-CS (Cannings-Samworth), 5. AoYa (Aoshima-Yata).
-Our method - RPE
-
-1. HDDA.R : This script is based on the hdda function from the library HDClassif.
-
-   Key function: HDDA
-
-      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix, (iv) model: a parameter of hdda function
-
-      Outputs: (i) y_hat: estimated classes 
-
-3. Aoshima-Yata.R : 
-   Key function: AoYa
-       Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
-       Outputs: (i) y_hat: estimated classes.
-
-4. IIS-SQDA.R
-   Key function:
-      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
-      Outputs: (i) y_hat: estimated classes.
-
-5. DA-QDA.R
-   Key function:
-      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
-      Outputs: (i) y_hat: estimated classes.
-
-6. RPE-CS.R
-   Key function:
-      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
-      Outputs: (i) y_hat: estimated classes.
-
-7. RPE.R
-   Key function:
-      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
-      Outputs: (i) y_hat: estimated classes.
-
-We have the scripts Model.R, generateData_Bayes.R, Experiment.R and Main_Parallel.R to evaluate the misclassification probabilities for each of the methods corresponding to the models mentioned in the paper.
-
-   1. Model.R
-      Inputs: (i) type: Model types (for example: 'model1', 'model2', 'model3' or 'model4'), (ii) p: data dimension
-      Outputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet
-
-   2. generateData_Bayes.R
-      Inputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet: , (v) n1, n2, m1, m2
-      Outputs: (i) X1:, (ii) X2: , (iii) res
-
-   3. Experiment.R
-      Inputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet: , (v) n1, n2, m1, m2
-      Outputs: (i) X1:, (ii) X2: , (iii) res
-
-   4. Main_Parallel.R 
