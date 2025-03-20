@@ -18,37 +18,37 @@ Our proposed method: **RPE**
 - **Key Function**: `HDDA`
 #### **HDDA**
 - **Inputs**:
-  - `X_train`: \( n x p \) training data matrix
-  - `y_train`: training classes
-  - `X_test`: \( m x p \) test data matrix
-  - `model`: a parameter of the `hdda` function
+  - `X_train`: \( n x p \) training data matrix.
+  - `y_train`: training classes.
+  - `X_test`: \( m x p \) test data matrix.
+  - `model`: a parameter of the `hdda` function.
 - **Outputs**:
-  - `y_hat`: estimated classes
+  - `y_hat`: estimated classes.
 
 ### 2. `Aoshima-Yata.R`
 - **Key Function**: `AoYa`
   #### **AoYa**
 - **Inputs**:
-  - `X_train`: \( n x p \) training data matrix
-  - `y_train`: training classes
-  - `X_test`: \( m x p \) test data matrix
+  - `X_train`: \( n x p \) training data matrix.
+  - `y_train`: training classes.
+  - `X_test`: \( m x p \) test data matrix.
 - **Outputs**:
-  - `y_hat`: estimated classes
+  - `y_hat`: estimated classes.
 
 ### 3. `IIS-SQDA.R`
 - **Key Functions**: `IIS_SQDA`, `predictSQDA`
 #### **IIS_SQDA**
 - **Inputs**:
-  - `X1`: \( n1 x p \) training data matrix for population 1
-  - `X2`: \( n2 x p \) training data matrix for population 2
-  - `options`: parameters for DAQDA
+  - `X1`: \( n1 x p \) training data matrix for population 1.
+  - `X2`: \( n2 x p \) training data matrix for population 2.
+  - `options`: parameters for DAQDA.
 - **Outputs**:
   - `fit`: the fitted model
 
 #### **predictSQDA**
 - **Inputs**:
-  - `fit`: the fitted model from `IIS_SQDA` function
-  - `X_test`: \( m \times p \) test data matrix
+  - `fit`: the fitted model from `IIS_SQDA` function.
+  - `X_test`: \( m \times p \) test data matrix.
 
 - **Outputs**:
   - `y_hat`: estimated classes
@@ -58,31 +58,31 @@ Our proposed method: **RPE**
 
 #### **DAQDA**
 - **Inputs**:
-  - `X1`: \( n1 x p \) training data matrix for population 1
-  - `X2`: \( n2 x p \) training data matrix for population 2
-  - `options`: parameters for DAQDA
+  - `X1`: \( n1 x p \) training data matrix for population 1.
+  - `X2`: \( n2 x p \) training data matrix for population 2.
+  - `options`: parameters for DAQDA.
 - **Outputs**:
-  - `fit`: the fitted model
+  - `fit`: the fitted model.
 
 #### **DAQDAClassify**
 - **Inputs**:
-  - `fit`: the fitted model from `DAQDA` function
-  - `X_test`: \( m \times p \) test data matrix
+  - `fit`: the fitted model from `DAQDA` function.
+  - `X_test`: \( m \times p \) test data matrix.
 
 - **Outputs**:
-  - `y_hat`: estimated classes
+  - `y_hat`: estimated classes.
   
 ### 5. `RPE-CS.R`
 - **Key Function**: `RPE-CS`
 - **Inputs**:
-  - `X_train`: \( n \times p \) training data matrix
-  - `y_train`: training classes
-  - `X_test`: \( m \times p \) test data matrix
-  - `d`: reduced dimension
-  - `B1`: number of blocks of matrices
-  - `B2`: number of blocks
+  - `X_train`: \( n \times p \) training data matrix.
+  - `y_train`: training classes.
+  - `X_test`: \( m \times p \) test data matrix.
+  - `d`: reduced dimension.
+  - `B1`: number of blocks of matrices.
+  - `B2`: number of blocks.
 - **Outputs**:
-  - `y_hat`: estimated classes
+  - `y_hat`: estimated classes.
 
 ### 6. `RPE.R`
 - **Key Function**: `RPE`
