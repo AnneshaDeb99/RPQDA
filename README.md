@@ -87,36 +87,39 @@ Our proposed method: **RPE**
 ### 6. `RPE.R`
 - **Key Function**: `RPE`
 - **Inputs**:
+  -`type`: type of random matrix distribution (for example: 'StdNormal' for standard normal)
   - `X_train`: \( n \times p \) training data matrix
   - `y_train`: training classes
   - `X_test`: \( m \times p \) test data matrix
+  - `d`: reduced dimension
 - **Outputs**:
   - `y_hat`: estimated classes
 
 ## Scripts for Model Evaluation
-To evaluate the misclassification probabilities for each method, the following scripts are used:
+To evaluate the misclassification probabilities for each method and model, the following scripts are used:
 
 ### 1. `Model.R`
 - **Inputs**:
   - `type`: Model type (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`)
   - `p`: Data dimension
 - **Outputs**:
-  - `mu1`, `mu2`
-  - `sigma1`, `sigma2`
-  - `Omega1`, `Omega2`
-  - `logdet`
+  - `mu1`, `mu2`: mean paramaters for the Gaussina distribution for class 1 and class 2
+  - `sigma1`, `sigma2`: covariance matrices for the Gaussina distribution for class 1 and class 2
+  - `Omega1`, `Omega2`: inverse of the covariance matrices for class 1 and class 2
+  - `logdet`: logdet(sigma2) - logdet(sigma1)
 
 ### 2. `generateData_Bayes.R`
 - **Inputs**:
-  - `mu1`, `mu2`
-  - `sigma1`, `sigma2`
-  - `Omega1`, `Omega2`
-  - `logdet`
-  - `n1`, `n2`, `m1`, `m2`
+  - `mu1`, `mu2`: mean paramaters for the Gaussina distribution for class 1 and class 2
+  - `sigma1`, `sigma2`: covariance matrices for the Gaussina distribution for class 1 and class 2
+  - `Omega1`, `Omega2`: inverse of the covariance matrices for class 1 and class 2
+  - `logdet`: logdet(sigma2) - logdet(sigma1)
+  - `n1`, `n2`: training observations for class 1 and class 2
+  -  `m1`, `m2`: test observations for class 1 and class 2
 - **Outputs**:
-  - `X1`
-  - `X2`
-  - `res`
+  - `X1`: \( (n1 + m1) x p \) data matrix from class 1
+  - `X2`: \( (n2 + m2) x p \) data matrix from class 2
+  - `res`: bayes decision rule
 
 ### 3. `Experiment.R`
 - **Inputs**:
