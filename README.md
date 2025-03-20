@@ -133,10 +133,6 @@ To evaluate the misclassification probabilities for each method and model, the f
 - **Outputs**:
   - `MP`: list of misclassification proportions of dimension (iter, (n2 + m2), p_all)
   - `Ti`: list of time of execution of dimension (iter, (n2 + m2), p_all)
-- **Outputs**:
-  - `X1`
-  - `X2`
-  - `res`
 
 ### 4. `Main_Parallel.R`
 This script runs the full evaluation in a parallel computing environment.
