@@ -16,6 +16,7 @@ Our proposed method: **RPE**
 
 ### 1. `HDDA.R` 
 - **Key Function**: `HDDA`
+#### **HDDA**
 - **Inputs**:
   - `X_train`: \( n x p \) training data matrix
   - `y_train`: training classes
@@ -26,6 +27,7 @@ Our proposed method: **RPE**
 
 ### 2. `Aoshima-Yata.R`
 - **Key Function**: `AoYa`
+  #### **AoYa**
 - **Inputs**:
   - `X_train`: \( n x p \) training data matrix
   - `y_train`: training classes
@@ -35,7 +37,7 @@ Our proposed method: **RPE**
 
 ### 3. `IIS-SQDA.R`
 - **Key Functions**: `IIS_SQDA`, `predictSQDA`
-- **IIS_SQDA**
+#### **IIS_SQDA**
 - **Inputs**:
   - `X1`: \( n1 x p \) training data matrix for population 1
   - `X2`: \( n2 x p \) training data matrix for population 2
@@ -43,7 +45,7 @@ Our proposed method: **RPE**
 - **Outputs**:
   - `fit`: the fitted model
 
-- **predictSQDA**:
+#### **predictSQDA**
 - **Inputs**:
   - `fit`: the fitted model from `IIS_SQDA` function
   - `X_test`: \( m \times p \) test data matrix
@@ -53,7 +55,8 @@ Our proposed method: **RPE**
 
 ### 4. `DA-QDA.R`
 - **Key Functions**: `DAQDA`, `DAQDAClassify`
-- **DAQDA**:
+
+#### **DAQDA**
 - **Inputs**:
   - `X1`: \( n1 x p \) training data matrix for population 1
   - `X2`: \( n2 x p \) training data matrix for population 2
@@ -61,7 +64,7 @@ Our proposed method: **RPE**
 - **Outputs**:
   - `fit`: the fitted model
 
-- **DAQDAClassify**:
+#### **DAQDAClassify**
 - **Inputs**:
   - `fit`: the fitted model from `DAQDA` function
   - `X_test`: \( m \times p \) test data matrix
