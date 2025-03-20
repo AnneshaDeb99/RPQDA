@@ -4,41 +4,48 @@ The following description of the functions are in reference to the paper titled 
 The competeting methods are - 1. HDDA, 2. IIS-SQDA, 3. DA-QDA, 4. RPE-CS (Cannings-Samworth), 5. AoYa (Aoshima-Yata).
 Our method - RPE
 
-1. HDDA.R :
+1. HDDA.R : This script evaluates the
+   Key function: HDDA
+      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix, (iv) model: 
+      Outputs: (i) y_hat: estimated classes 
 
-   Inputs:
+2. Aoshima-Yata.R : 
+   Key function: AoYa
+       Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
+       Outputs: (i) y_hat: estimated classes.
 
-       (i) X_train
-       (ii) y_train
-      (iii) X_test
-      (iv) model
-   Outputs:
-   (i) y_hat
+3. IIS-SQDA.R
+   Key function:
+      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
+      Outputs: (i) y_hat: estimated classes.
 
-   2. Model.R
-      Inputs:
-      (i) type: Model types (for example: 'model1', 'model2', 'model3' or 'model4')
-      (ii) p: data dimension
+4. DA-QDA.R
+   Key function:
+      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
+      Outputs: (i) y_hat: estimated classes.
 
-    Outputs:
-    (i) mu1, mu2
-     (ii) sigma1, sigma2
-     (iii) Omega1, Omega2
-     (iv) logdet
+5. RPE-CS.R
+   Key function:
+      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
+      Outputs: (i) y_hat: estimated classes.
 
+6. RPE.R
+   Key function:
+      Inputs: (i) X_train : n x p train data matrix, (ii) y_train: training classes, (iii) X_test: m x p test data matrix.
+      Outputs: (i) y_hat: estimated classes.
 
-   4. generateData_Bayes.R
-  
-      Inputs:
+We have the scripts Model.R, generateData_Bayes.R, Experiment.R and Main_Parallel.R to evaluate the misclassification probabilities for each of the methods corresponding to the models mentioned in the paper.
 
-      (i) mu1, mu2
-     (ii) sigma1, sigma2
-     (iii) Omega1, Omega2
-     (iv) logdet
-      (v) n1, n2, m1, m2
+   1. Model.R
+      Inputs: (i) type: Model types (for example: 'model1', 'model2', 'model3' or 'model4'), (ii) p: data dimension
+      Outputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet
 
-      Outputs:
+   2. generateData_Bayes.R
+      Inputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet: , (v) n1, n2, m1, m2
+      Outputs: (i) X1:, (ii) X2: , (iii) res
 
-      (i) X1
-      (ii) X2
-      (iii) res
+   3. Experiment.R
+      Inputs: (i) mu1, mu2: , (ii) sigma1, sigma2: , (iii) Omega1, Omega2: , (iv) logdet: , (v) n1, n2, m1, m2
+      Outputs: (i) X1:, (ii) X2: , (iii) res
+
+   4. Main_Parallel.R 
