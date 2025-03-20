@@ -34,11 +34,20 @@ Our proposed method: **RPE**
   - `y_hat`: estimated classes
 
 ### 3. `IIS-SQDA.R`
-- **Key Function**: `IIS-SQDA`
+- **Key Functions**: `IIS_SQDA`, `predictSQDA`
+- **IIS_SQDA**
 - **Inputs**:
-  - `X_train`: \( n \times p \) training data matrix
-  - `y_train`: training classes
+  - `X1`: \( n1 x p \) training data matrix for population 1
+  - `X2`: \( n2 x p \) training data matrix for population 2
+  - `options`: parameters for DAQDA
+- **Outputs**:
+  - `fit`: the fitted model
+
+- **predictSQDA**:
+- **Inputs**:
+  - `fit`: the fitted model from `IIS_SQDA` function
   - `X_test`: \( m \times p \) test data matrix
+
 - **Outputs**:
   - `y_hat`: estimated classes
 
@@ -54,7 +63,7 @@ Our proposed method: **RPE**
 
 - **DAQDAClassify**:
 - **Inputs**:
-  - `fit`: the fitted model from `DAQDA`
+  - `fit`: the fitted model from `DAQDA` function
   - `X_test`: \( m \times p \) test data matrix
 
 - **Outputs**:
@@ -66,6 +75,9 @@ Our proposed method: **RPE**
   - `X_train`: \( n \times p \) training data matrix
   - `y_train`: training classes
   - `X_test`: \( m \times p \) test data matrix
+  - `d`: reduced dimension
+  - `B1`: number of blocks of matrices
+  - `B2`: number of blocks
 - **Outputs**:
   - `y_hat`: estimated classes
 
