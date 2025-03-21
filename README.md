@@ -94,7 +94,7 @@ Our proposed method: **RPE**
   - `y_hat`: Estimated classes.
 
 ## Scripts for Model Evaluation
-To evaluate the misclassification probabilities for each method and model, the following scripts are used:
+To evaluate the misclassification probabilities for each method and scheme, the following scripts are used:
 
 ### 1. `Model.R`
 - **Inputs**:
@@ -118,8 +118,8 @@ To evaluate the misclassification probabilities for each method and model, the f
 
 ### 3. `Experiment.R`
 - **Inputs**:
-  - `model`: Schemes mentioned in the paper (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`).
-  - `method`: Methods mentioned in the paper (e.g., `'HDDA'`).
+  - `model`: Schemes mentioned in the paper (e.g., `'scheme1'`, `'scheme2'`, `'scheme3'`, `'scheme4'`).
+  - `method`: Methods mentioned in the paper (e.g., `'HDDA'`, `'AoYa'`, `'DA-QDA'`, `'IIS-SQDA'`, `'RPE-CS'`, `'RPE-SN'`, `'RPE-TP'`).
   - `p_all`: Vector of dimensions.
   - `iter`: Number of times data generation is executed.
   - `n1`, `n2`: Training observations for class 1 and class 2.
@@ -132,16 +132,13 @@ To evaluate the misclassification probabilities for each method and model, the f
 ### 4. `Main_Parallel.R`
 This script runs the full evaluation in a parallel computing environment.
 
-## How to run the codes
-1. Specify the desired `scheme`, `method`, `p_all`, `iter`, and sample sizes (`n1`, `n2`, `m1`, `m2`) in `Main_Parallel.R`.
-2. Define the output directory for storing results.
+## How to Run the Codes
+1. In `Main_Parallel.R`, specify the desired `scheme`, `method`, `p_all`, `iter`, and sample sizes (`n1`, `n2`, `m1`, `m2`).
+2. Set the output directory where the results will be stored.
 
-**Few Details**
- - 1. Model.R will give us population parameters mu1, mu2, sigma1 and sigma2.
+### Additional Details
+- `Experiment.R` computes the misclassification proportion (`MP`) and execution time (`Ti`) for each method (e.g., Bayes, RPE-CS) across different dimensions and iterations.
+- Within `Experiment.R`:
+  - `Model.R` calculates the population parameters (`mu1`, `mu2`, `sigma1`, `sigma2`) based on the chosen scheme.
+  - Using these parameters, `generateData_Bayes.R` generates data (`X1`, `X2`) and assigns classes based on the Bayes decision rule (`res`).
 
- - 2. Given the parameters generateData_Bayes.R will generate data (X1) and (X2)
-      and calculates class assignments using bayes rule (res).
-
- - 3. Using the generated data, Experiment.R will calculate MP (Misclassification
-      proportion) and Ti (Time) for each methods (e.g. Bayes, RPE-CS etc.), for
-      each dimensions and iterations.
