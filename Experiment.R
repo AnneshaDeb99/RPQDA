@@ -3,7 +3,7 @@
 ################################################################################
 
 # Inputs : 
-#         1. scheme: scheme type (In Model.R we are generating several schemes)
+#         1. scheme: scheme type (In Scheme.R we are generating several schemes)
 #         2. method: vector of methods such as Bayes, RPE-SN etc.
 #         3. p_all: vector of all the dimensions
 #         4. iter: for each dimension and scheme, number of times we want to execute 
