@@ -47,7 +47,7 @@ iter <- 10
 
 run <- function(i){
   file_name <- paste0(scheme[i], 'of', method, '.RData')
-  cat("Starting model", i, "...\n")
+  cat("Starting Scheme", i, "...\n")
   result <- Experiment(scheme = scheme[i],method = method, p_all = p_all,iter = iter, n1 = n1, n2 = n2, m1 = m1, m2 = m2, file_name = file_name)
   MP <- result$MP
   Ti <- result$Ti
