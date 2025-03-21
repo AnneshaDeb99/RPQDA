@@ -22,7 +22,7 @@ discriminant <- function(X_test,mu1_hat,mu2_hat,sig1_hat,sig2_hat,n1,n2){
 
 
 
-RPEnsemble <- function(type, X_train, y_train, X_test,d = 10, B = 1500){
+RPE <- function(type, X_train, y_train, X_test,d = 10, B = 1500){
   ##Data
   if(is.matrix(X_test) == FALSE){
     X_test = (as.matrix(X_test))
