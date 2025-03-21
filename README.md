@@ -17,7 +17,7 @@ The following description of the functions refers to the paper titled *"Ultrahig
 ## Scripts for Model Evaluation
 To evaluate the misclassification probabilities for each method and scheme, the following scripts are used:
 
-### 1. `Model.R`
+### 1. `Scheme.R`
 - **Inputs**:
   - `type`: Scheme/Model type (e.g., `'scheme1'`, `'scheme2'`, `'scheme3'`, `'scheme4'`).
   - `p`: Data dimension.
