@@ -2,7 +2,7 @@
 ############################## generateData_Bayes.R ############################
 ################################################################################
 
-# Inputs: As inputs it takes the output values of Model.R
+# Inputs: As inputs it takes the output values of Scheme.R
 #         i.e. mu1, mu2, sigma1, sigma2, Omega1, Omega2, logdet and
 #         dimension (p), train/test sample sizes of population 1: n1/m1, and
 #         population 2: n2/m2
