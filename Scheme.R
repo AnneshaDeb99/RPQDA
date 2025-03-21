@@ -1,5 +1,5 @@
 ################################################################################
-################################## Model.R #####################################
+################################## Scheme.R #####################################
 ################################################################################
 
 # Inputs :  Scheme type (type) and the dimension (p) 
@@ -27,7 +27,7 @@ Scheme <- function(type, p){
   }
   mu2 <- rep(0, p)
   
-  #Cannings-Samworth Paper_Model1 
+  #Cannings-Samworth Paper_Scheme1 
   if (type == 'scheme1'){
     
     if(p <= 1000){
@@ -59,7 +59,7 @@ Scheme <- function(type, p){
     logdet <- 2*logdet2 - 2*logdet1
     
   }
-  # Ayoshima-Yata Paper_Model2 
+  # Ayoshima-Yata Paper_Scheme2 
   else if (type == 'scheme2'){
   
     #mu1
@@ -178,7 +178,7 @@ Scheme <- function(type, p){
     logdet <- (p21+p22-p11-p12)*log(0.5) + log((1+0.5*(p21-1))) + log((1+0.5*(p22-1))) - log((1+0.5*(p11-1))) - log((1+0.5*(p12-1))) + (p23-p13)*log(1-rho^2) + p23*log(c2) - p13*log(c1) + 2*sum(log(B2)) - 2*sum(log(B1))
     
     }
-  #Our Model_Used in paper #used in our paper
+   
   else if (type == 'scheme3') {
     
     mu1 <- mu2
@@ -216,7 +216,7 @@ Scheme <- function(type, p){
     logdet <- (p21*t2-t2-p11*t1+t1)*log(1-rho) + t2*log((1+(p21-1)*rho)) - t1*log((1+(p11-1)*rho))
     
   }
-  #Fan sQDA Paper_Model4 #Used in our paper 
+
   else if (type == 'scheme4') {
     
     mu1 <- mu2
