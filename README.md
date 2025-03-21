@@ -126,8 +126,21 @@ To evaluate the misclassification probabilities for each method and model, the f
   - `m1`, `m2`: Test observations for class 1 and class 2.
   - `file_name`: File where outputs are stored (e.g., `'result.RData'`).
 - **Outputs**:
-  - `MP`: List of misclassification proportions of dimension `(iter, (n2 + m2), p_all)`.
-  - `Ti`: List of execution times of dimension `(iter, (n2 + m2), p_all)`.
+  - `MP`: array of misclassification proportions of dimension `(methods, iter, p_all)`.
+  - `Ti`: List of execution times of dimension `(methods, iter, p_all)`.
 
 ### 4. `Main_Parallel.R`
 This script runs the full evaluation in a parallel computing environment.
+
+## How to run the codes
+In the `Main_Parallel.R` script you mention scheme, method, p_all, iter and (n1, n2, m1, m2) and a path where you want your output files to be stored and run the entire script. 
+
+**Few Details**
+ - 1. Model.R will give us population parameters mu1, mu2, sigma1 and sigma2.
+
+ - 2. Given the parameters generateData_Bayes.R will generate data (X1) and (X2)
+      and calculates class assignments using bayes rule (res).
+
+ - 3. Using the generated data, Experiment.R will calculate MP (Misclassification
+      proportion) and Ti (Time) for each methods (e.g. Bayes, RPE-CS etc.), for
+      each dimensions and iterations.
