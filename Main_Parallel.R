@@ -14,9 +14,9 @@
 ################################################################################
 
 rm(list = ls())
-path <- "C:/Users/Annsha deb/Dropbox/Random_Projection/QDA/QDA_Codes/Codes(Submitted)-Final"
 
-#path <- readline("Enter the path to the Codes folder: ")
+#Provide the path where other files are stored.
+path <- readline("Enter the path to the Codes folder: ")
 setwd(path)
 
 library(MASS)
