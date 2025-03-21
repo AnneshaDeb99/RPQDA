@@ -29,7 +29,10 @@ To evaluate the misclassification probabilities for each method and scheme, the 
 
 ### 2. `generateData_Bayes.R`
 - **Inputs**:
-  - Same as `Model.R`, plus:
+  - `mu1`, `mu2`: Mean parameters for the Gaussian distribution for class 1 and class 2.
+  - `sigma1`, `sigma2`: Covariance matrices for the Gaussian distribution for class 1 and class 2.
+  - `Omega1`, `Omega2`: Inverse of the covariance matrices for class 1 and class 2.
+  - `logdet`: `logdet(sigma2) - logdet(sigma1)`.
   - `n1`, `n2`: Training observations for class 1 and class 2.
   - `m1`, `m2`: Test observations for class 1 and class 2.
 - **Outputs**:
@@ -39,7 +42,7 @@ To evaluate the misclassification probabilities for each method and scheme, the 
 
 ### 3. `Experiment.R`
 - **Inputs**:
-  - `model`: Schemes mentioned in the paper (e.g., `'scheme1'`, `'scheme2'`, `'scheme3'`, `'scheme4'`).
+  - `scheme`: Schemes mentioned in the paper (e.g., `'scheme1'`, `'scheme2'`, `'scheme3'`, `'scheme4'`).
   - `method`: Methods mentioned in the paper (e.g., `'HDDA'`, `'AoYa'`, `'DA-QDA'`, `'IIS-SQDA'`, `'RPE-CS'`, `'RPE-SN'`, `'RPE-TP'`).
   - `p_all`: Vector of dimensions.
   - `iter`: Number of times data generation is executed.
@@ -60,6 +63,6 @@ This script runs the full evaluation in a parallel computing environment.
 ### Additional Details
 - `Experiment.R` computes the misclassification proportion (`MP`) and execution time (`Ti`) for each method (e.g., Bayes, RPE-CS) across different dimensions and iterations.
 - Within `Experiment.R`:
-  - `Model.R` calculates the population parameters (`mu1`, `mu2`, `sigma1`, `sigma2`) based on the chosen scheme.
+  - `Scheme.R` calculates the population parameters (`mu1`, `mu2`, `sigma1`, `sigma2`) based on the chosen scheme.
   - Using these parameters, `generateData_Bayes.R` generates data (`X1`, `X2`) and assigns classes based on the Bayes decision rule (`res`).
 
