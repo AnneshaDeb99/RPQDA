@@ -1,7 +1,7 @@
 ################################################################################
 ################################################################################
 
-# 1. Model.R will give us population parameters mu1, mu2, sigma1 and sigma2
+# 1. Scheme.R will give us population parameters mu1, mu2, sigma1 and sigma2
 #
 # 2. Given the parameters generateData_Bayes.R will generate data (X1) and (X2)
 #    and calculates class assignments using bayes rule (res)
@@ -30,7 +30,7 @@ source('Experiment.R')
 cl <- makeCluster(8, type = "SOCK")
 registerDoSNOW(cl)
 
-scheme <- c('scheme1','scheme2','scheme3','scheme4')  #Specifying the model, types of model are specified in Model.R file
+scheme <- c('scheme1','scheme2','scheme3','scheme4')  #Specifying the scheme, types of scheme are specified in Scheme.R file
 
 
 method <- 'all'
