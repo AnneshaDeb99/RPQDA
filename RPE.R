@@ -25,7 +25,6 @@ RPE <- function(type, X_train, y_train, X_test, d = 10, B = 500){
   k <- length(unique(y_train)) #number of classes 
   p <- ncol(X_test)
   n.test <- nrow(X_test)
-  #y_train = ifelse(y_train == 0, 1, 2)
   
   if(type == 'StdNormal'){
     q_RP_hat_ens <- foreach(b = 1:B, .combine = function(...) abind(..., along = 3), .multicombine = TRUE, .init = NULL, .packages = c('doParallel','abind','Matrix')) %dopar% {
