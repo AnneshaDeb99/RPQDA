@@ -3,7 +3,6 @@
 The following description of the functions refers to the paper titled *"Ultrahigh-dimensional Quadratic Discriminant Analysis Using Random Projections"*.
 
 ## Function Descriptions
-
 ### 1. `RPE.R`
 - **Key Function**: `RPE`
 - **Inputs**:
@@ -20,7 +19,7 @@ To evaluate the misclassification probabilities for each method and scheme, the 
 
 ### 1. `Model.R`
 - **Inputs**:
-  - `type`: Scheme/Model type (e.g., `'model1'`, `'model2'`, `'model3'`, `'model4'`).
+  - `type`: Scheme/Model type (e.g., `'scheme1'`, `'scheme2'`, `'scheme3'`, `'scheme4'`).
   - `p`: Data dimension.
 - **Outputs**:
   - `mu1`, `mu2`: Mean parameters for the Gaussian distribution for class 1 and class 2.
