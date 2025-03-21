@@ -133,7 +133,8 @@ To evaluate the misclassification probabilities for each method and model, the f
 This script runs the full evaluation in a parallel computing environment.
 
 ## How to run the codes
-In the `Main_Parallel.R` script you mention scheme, method, p_all, iter and (n1, n2, m1, m2) and a path where you want your output files to be stored and run the entire script. 
+1. Specify the desired `scheme`, `method`, `p_all`, `iter`, and sample sizes (`n1`, `n2`, `m1`, `m2`) in `Main_Parallel.R`.
+2. Define the output directory for storing results.
 
 **Few Details**
  - 1. Model.R will give us population parameters mu1, mu2, sigma1 and sigma2.
