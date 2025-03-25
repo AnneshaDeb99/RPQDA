@@ -10,7 +10,7 @@
 #         B: number of random matrices to be used
 #
 # Outputs: class.RPE: estimated classes 
-
+#Note: RPE-SN and RPE-TP are RPE with type: 'StdNormal' and '3_point' respectively.
 ################################################################################
 ################################################################################
 ################################################################################
