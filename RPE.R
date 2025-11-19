@@ -139,11 +139,30 @@ RPE <- function(type, X_train, y_train, X_test, d = 10, B = 500){
       q_RP_hat <- discriminant(X_test%*%R, mu1, mu2, sig1, sig2, n1, n2)
       return(q_RP_hat)
     }
+  }else if(type == 'Haar'){
+    
+    q_RP_hat <- foreach(b = 1:B, .combine = 'cbind',.export = c('discriminant','logdet'), .packages = c('Matrix','doParallel')) %dopar% {
+      
+      R = matrix(rnorm(d * p), nrow = p, ncol = d)
+      R.svd = svd(R)
+      R = R.svd$u
+      XRP_train <- crossprod(t(X_train),R)
+      train <- cbind(y_train,XRP_train)
+      train1 <- train[train[,1]==1,]
+      train2 <- train[train[,1]==2,]
+      mu1 <- colMeans(train1[,-1])
+      mu2 <- colMeans(train2[,-1])
+      sig1 <- crossprod((train1[,-1]-mu1),(train1[,-1]-mu1))/(n1-1)
+      sig2 <- crossprod((train2[,-1]-mu2),(train2[,-1]-mu2))/(n2-1)
+      q_RP_hat <- discriminant(X_test%*%R,mu1,mu2,sig1,sig2,n1,n2)
+      return(q_RP_hat)
+    }
   }
   dis_RP <- rowMeans(q_RP_hat1)
   class <- ifelse(dis_RP>0,1,2)
   return(class)
 }
+
 
 
 
